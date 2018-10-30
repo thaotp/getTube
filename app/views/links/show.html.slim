@@ -1,0 +1,8 @@
+= render 'form', link: Link.new
+.content
+  - if @video_list.present? && @link.youtube_type.playlist?
+    = render partial: 'list', locals: {video_list: @video_list}
+  - elsif @formats.present?
+    = render partial: 'video', locals: {formats: @formats, video: @video}
+  - else
+    = render partial: 'not_found', locals: {formats: @formats, video: @video}

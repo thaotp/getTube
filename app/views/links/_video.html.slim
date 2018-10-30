@@ -1,0 +1,87 @@
+.content
+  .row
+    .col-sm-8.col-md-8
+      .row
+        ul.nav.nav-pills.nav-stacked.col-sm-4.col-md-4
+          li.selection-type.active
+            a data-toggle="pill" href="#video" Video
+          li.selection-type
+            a data-toggle="pill" href="#audio"  Audio
+          li.selection-type
+            a data-toggle="pill" href="#videoOnly"  Video Only
+        .tab-content.video-content.col-sm-8.col-md-8
+          #video.tab-pane.active.fade.in
+            table.table.table-bordered.list-group
+                thead
+                  tr
+                    th Resolution
+                    th FileSize
+                    th
+                tbody
+                  - formats['video'].reverse.each do |format|
+                    tr
+                      td
+                        span = format.resolution
+                        span
+                          |  (
+                          = format.ext
+                          | )
+                      td = format.filesize || 'NaN'
+                      td
+                        a download='' class='btn btn-default btn-xs' rel='nofollow' type='button' href=format.url target="_blank"
+                          | Download
+          #audio.tab-pane.fade.in
+            table.table.table-bordered.list-group
+                thead
+                  tr
+                    th Resolution
+                    th File type (MB)
+                    th
+                tbody
+                  - formats['audio'].reverse.each do |format|
+                    tr
+                      td
+                        div = format.format_note
+                        div
+                          | .
+                          = format.ext
+                        div
+                          = format.abr
+                          |kbps
+                      td = (format.filesize.to_f / 1.megabytes).round(2)
+                      td
+                        a download='' class='btn btn-default btn-xs' rel='nofollow' type='button' href=format.url target="_blank"
+                          | Download
+          #videoOnly.tab-pane.fade.in
+            table.table.table-bordered.list-group
+                thead
+                  tr
+                    th Resolution
+                    th File type (MB)
+                    th
+                tbody
+                  - formats['video_only'].reverse.each do |format|
+                    tr
+                      td
+                        = format.format_note
+                        |  (
+                        = format.ext
+                        | )
+                      td = (format.filesize.to_f / 1.megabytes).round(2)
+                      td
+                        a download='' class='btn btn-default btn-xs' rel='nofollow' type='button' href=format.url target="_blank"
+                          | Download
+    .col-sm-4.col-md-4
+      .embed-responsive.embed-responsive-4by3.video
+        video.player.mejs__player[src=video.url preload="auto" poster=video.thumbnail title=video.fulltitle style=("width: 100%; height: 100%;")  data-mejsoptions='{"pluginPath": "/path/to/shims/", "alwaysShowControls": "false", "hideVideoControlsOnLoad": "true", "showPosterWhenPaused": "true", "pauseOtherPlayers": "true", "hideVideoControlsOnPause": "true"}']
+      h4
+        = video.fulltitle
+      div
+        | Duration:
+        = video.duration
+      div
+        | Views:
+        = video.view_count
+      div
+        | Uploader:
+        span = video.uploader

@@ -1,0 +1,9 @@
+.row.text-center.text-lg-left
+  - @video_list.entries.each do |entry|
+    .col-lg-3.col-md-4.col-xs-6
+      = link_to link_path(entry["id"]),  class: "d-block mb-4 h-100"
+        img.img-fluid.img-thumbnail.vdlist alt="" src=entry["thumbnail"]
+      h4.video-title =entry["title"]
+      = link_to link_path(entry["id"]),  class: "btn btn-default btn-xs", :"aria-label" => "Left Align", type: "button"
+        span.glyphicon.glyphicon-download-alt aria-hidden="true"
+        |  Download

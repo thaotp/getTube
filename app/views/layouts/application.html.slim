@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title
+      | GetTube
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    #meta name="turbolinks-visit-control" content="reload"
+    meta name="turbolinks-cache-control" content="no-preview"
+    meta name="turbolinks-root" content="/"
+  body
+    .container
+      /! Static navbar
+      nav.navbar.navbar-default.navbar-customize
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="/" data-turbolinks="false" DTuber
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+                  | Language
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a href="#"  English
+                  li
+                    a href="#"  Japanese
+                  li
+                    a href="#"  Vietnamese
+      .jumbotron.main
+        = render partial: 'layouts/loader'
+        = yield
+

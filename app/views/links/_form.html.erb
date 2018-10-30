@@ -1,0 +1,29 @@
+<h2 class='text-center'>Download Video and Audio from YouTube</h2>
+<%= form_with(model: link, local: false, class: 'find-video') do |form| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='col-sm-3'></div>
+    <div class='col-sm-6'>
+      <div class="input-group download-group">
+        <%= form.text_field :url, value: @link.try(:url), class: 'form-control download-input', :'aria-describedby'=>'url-input'  %>
+        <span class="input-group-btn ">
+          <button  type="submit" name="commit"  class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-save"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class='col-sm-3'></div>
+  </div>
+
+<% end %>

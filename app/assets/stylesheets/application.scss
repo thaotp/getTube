@@ -1,0 +1,83 @@
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import 'font-awesome/scss/font-awesome.scss';
+@import 'mediaelement/build/mediaelementplayer.min.css';
+
+body{
+  background-color: #f9f9f9;
+}
+.main{
+  padding-top: 10px;
+  overflow-wrap: break-word;
+  border-radius: 0 !important;
+  background-color: #ffffff;
+  box-shadow: 0 3px 5px rgba(0,0,0,.1);
+  min-height: 528px;
+  color: #222;
+}
+.video-content{
+  overflow-y: auto;
+  height: 320px;
+}
+.download-group{
+/*  .download-input{
+    width: calc(100% - 40px);
+  }
+  a{
+    width: 40px;
+  }*/
+}
+.find-video{
+  margin-bottom: 15px;
+}
+.list-group{
+  border-radius: 7px;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgb(255, 255, 255);
+}
+
+.table th,td{
+  padding: 15px !important;
+}
+
+.selection-type{
+  font-weight: bold;
+}
+.selection-type.active{
+  border-radius: 4px;
+  box-shadow: 0 2px 15px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgb(255, 255, 255);
+  a{
+    background-color: #ffffff !important;
+    color: #222222 !important;
+  }
+}
+.nav-pills > li + li {
+  margin-top: 5px;
+}
+.navbar-customize{
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background-color: #ffffff;
+  margin-top: 10px;
+}
+.vdlist{
+  color: #fff;
+  width: 400px;
+  margin-top: 15px;
+}
+.video-title{
+  display: block;
+  font-weight: 500;
+  height: 43px;
+  line-height: 19px;
+  overflow: hidden;
+  padding-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+.embed-responsive-4by3{
+  padding-bottom: 60%;
+}
+
+@import 'links.scss';
